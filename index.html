@@ -10,6 +10,10 @@
     />
     <!-- link css -->
     <link rel="stylesheet" href="./CSS/index.css" />
+    <!-- link AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Js AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,8 +31,10 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"
   ></script>
-  <!-- link javascript -->
-  <script src="./JS/index.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
   <body>
     <!-- container -->
     <div class="container_style">
@@ -250,43 +256,48 @@
             <!-- 글 -->
             <div class="main_left_top">
               <dl>
-                <dt class="main_left_main_font">컴터어시스턴스 출시</dt>
-                <dt class="main_left_sub_font">
-                  컴터어시스턴스는 고객의 업무 효울을 최대치로 끌어올릴 수 있는
-                  지능형
+                <dt class="main_left_main_font" id="main01_title">
+                  컴터어시스턴스 출시
                 </dt>
-                <dt class="main_left_sub_font">문서 작성 도구 입니다.</dt>
-                <dt class="main_left_sub_font">
+                <dt class="main_left_sub_font" id="main01_sub01">
+                  컴터어시스턴스는 고객의 업무 효울을 최대치로 끌어올릴 수 있는
+                  지능형 문서 작성 도구 입니다.
+                </dt>
+                <dt class="main_left_sub_font" id="main01_sub02">
                   컴터AI로 개인의 한계를 뛰어 넘는 경험을 해보세요!
                 </dt>
               </dl>
             </div>
             <!-- btns -->
             <div class="main_left_mid">
-              <button type="button" class="btn btn-outline-light">
-                바로가기
-                <img
-                  class="check_img img_orgin_style"
-                  src="./Img/check.png"
-                  alt="check"
-                />
-              </button>
-              <button type="button" class="btn btn-outline-light">
-                문의하기
-                <img
-                  class="check_img img_orgin_style"
-                  src="./Img/check.png"
-                  alt="check"
-                />
-              </button>
+              <div>
+                <button type="button" class="btn btn-outline-light">
+                  바로가기
+                  <img
+                    class="check_img img_orgin_style"
+                    src="./Img/check.png"
+                    alt="check"
+                  />
+                </button>
+                <button type="button" class="btn btn-outline-light">
+                  문의하기
+                  <img
+                    class="check_img img_orgin_style"
+                    src="./Img/check.png"
+                    alt="check"
+                  />
+                </button>
+              </div>
             </div>
             <div class="main_left_bot">
               <img
                 class="main_left_bot_img check_img img_orgin_style"
                 src="./Img/arrow_back.png"
                 alt="arrow_back"
+                id="left_btn"
+                onclick="left_btn()"
               />
-              <div class="main_left_bot_font">1</div>
+              <div class="main_left_bot_font" id="main_num">1</div>
               <img
                 class="check_img img_orgin_style"
                 src="./Img/small_dot.png"
@@ -297,6 +308,7 @@
                 class="check_img img_orgin_style"
                 src="./Img/arrow_forward.png"
                 alt="arrow_forward"
+                onclick="right_btn()"
               />
               <img
                 class="check_img img_orgin_style"
@@ -310,7 +322,7 @@
       </div>
       <!-- main02 - Brain -->
       <div class="main_brain_style">
-        <div class="brain_title">BRAiN</div>
+        <div class="brain_title" data-aos="slide-up">BRAiN</div>
         <div class="brain_sub_title">
           더 가치있는 일에 집중하기 위한, 브레인
         </div>
@@ -339,7 +351,7 @@
       <div class="main_title_font">Products</div>
       <div class="main_products_style">
         <!-- product01 -->
-        <div class="product1">
+        <div class="product1" data-aos="slide-up">
           <div class="product1_img">
             <img
               class="product_img_style img_orgin_style"
@@ -364,7 +376,7 @@
           </div>
         </div>
         <!-- product02 -->
-        <div class="product2">
+        <div class="product2" data-aos="slide-up">
           <div class="product1_img">
             <img
               class="product_img_style img_orgin_style"
@@ -389,7 +401,7 @@
           </div>
         </div>
         <!-- product03 -->
-        <div class="product3">
+        <div class="product3" data-aos="slide-up">
           <div class="product1_img">
             <img
               class="product_img_style img_orgin_style"
@@ -577,5 +589,10 @@
         />
       </div>
     </div>
+    <script>
+      AOS.init();
+    </script>
   </body>
+  <!-- link javascript -->
+  <script src="./JS/index.js"></script>
 </html>
