@@ -10,7 +10,7 @@ function toTop() {
 window.addEventListener("scroll", function () {
   //스크롤 할 경우
   let scrollY = this.scrollY;
-  console.log(parseInt(scrollY));
+  //console.log(parseInt(scrollY));
   if (parseInt(scrollY) >= 666) {
     //스크롤이 666이상이면
     //this.document.style.marginTop = `-10px`;
@@ -60,21 +60,46 @@ const changeMainContent = (number) => {
     "",
     "업무 효율성을 높이는 기업용 오피스 솔루션을 만나보세요.",
   ];
+  let rightimg = [
+    "./Img/assistant.jpeg",
+    "./Img/building.jpeg",
+    "./Img/document.jpeg",
+    "./Img/claude.jpeg",
+  ];
+  let bdclist = ["#0070C0", "#886756", "#0070C0", "#000D6D"];
   if (number === 1) {
     document.getElementById("main01_title").innerText = title[0];
     document.getElementById("main01_sub01").innerText = sub01[0];
     document.getElementById("main01_sub02").innerText = sub02[0];
+    document.getElementById("main_right_img").src = rightimg[0];
+    document.getElementById("main_container").style.backgroundColor =
+      bdclist[0];
   } else if (number === 2) {
     document.getElementById("main01_title").innerText = title[1];
     document.getElementById("main01_sub01").innerText = sub01[1];
     document.getElementById("main01_sub02").innerText = sub02[1];
+    document.getElementById("main_right_img").src = rightimg[1];
+    document.getElementById("main_container").style.backgroundColor =
+      bdclist[1];
   } else if (number === 3) {
     document.getElementById("main01_title").innerText = title[2];
     document.getElementById("main01_sub01").innerText = sub01[2];
     document.getElementById("main01_sub02").innerText = sub02[2];
+    document.getElementById("main_right_img").src = rightimg[2];
+    document.getElementById("main_container").style.backgroundColor =
+      bdclist[2];
   } else if (number === 4) {
     document.getElementById("main01_title").innerText = title[3];
     document.getElementById("main01_sub01").innerText = sub01[3];
     document.getElementById("main01_sub02").innerText = sub02[3];
+    document.getElementById("main_right_img").src = rightimg[3];
+    document.getElementById("main_container").style.backgroundColor =
+      bdclist[3];
   }
 };
+
+//마우스 이동에 따른 페이지 전환
+const main_img = document.getElementById("main_right");
+main_img.addEventListener("mousemove", (evnet) => {
+  console.log(evnet.movementX);
+});
