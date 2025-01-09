@@ -39,7 +39,9 @@
         <!-- header -->
         <div class="header_style">
           <!-- left -->
-          <div class="header_left"><div class="header_font">Comter</div></div>
+          <div class="header_left">
+            <div class="header_logo_font">Comter</div>
+          </div>
           <!-- mid -->
           <div class="header_mid">
             <!-- ai -->
@@ -293,7 +295,7 @@
               </div>
               <div class="main_left_bot">
                 <img
-                  class="main_left_bot_img check_img img_orgin_style"
+                  class="check_img img_orgin_style"
                   src="./Img/arrow_back.png"
                   alt="arrow_back"
                   id="left_btn"
@@ -328,11 +330,27 @@
         </div>
         <!-- main02 - Brain -->
         <div class="main_brain_style">
-          <div class="brain_title" data-aos="slide-up">BRAiN</div>
-          <div class="brain_sub_title">
+          <div
+            class="brain_title"
+            data-aos="slide-up"
+            data-aos-easing="ease-in-out"
+          >
+            BRAiN
+          </div>
+          <div
+            class="brain_sub_title"
+            data-aos="slide-up"
+            data-aos-duration="5000"
+            data-aos-easing="ease-in-out"
+          >
             더 가치있는 일에 집중하기 위한, 브레인
           </div>
-          <div class="brain_content">
+          <div
+            class="brain_content"
+            data-aos="slide-up"
+            data-aos-duration="5000"
+            data-aos-easing="ease-in-out"
+          >
             <div class="brain_content_font">
               브레인은 지능형 자동화(Intelligent Automation)를 위한 컴터그룹의
               AI 플랫폼 입니다.
@@ -355,90 +373,290 @@
         <div class="main_title_font">Products</div>
         <div class="main_products_style">
           <!-- product01 -->
-          <div class="product1" data-aos="slide-up">
-            <div class="product1_img">
-              <img
-                class="product_img_style img_orgin_style"
-                src="./Img/office365.jpeg"
-                alt="office365"
-              />
-            </div>
-            <div class="product1_title">OFFICE</div>
-            <div class="product1_content">
-              오피스 문서 작성에서 데이터 활용까지,<br />
-              한컴오피스를 통한 업무 생산성 향상을 경험하세요.
-            </div>
-            <div class="product1_btn">
-              <button type="button" class="btn_style">
-                자세히 보기
-                <img
-                  class="check_img img_orgin_style"
-                  src="./Img/check.png"
-                  alt="check"
-                />
-              </button>
+          <div class="filp_box" data-aos="slide-up">
+            <div class="flip_1">
+              <div class="front">
+                <div class="product1_img">
+                  <img
+                    class="product_img_style img_orgin_style"
+                    src="./Img/office365.jpeg"
+                    alt="office365"
+                  />
+                </div>
+                <div class="product1_title">OFFICE</div>
+                <div class="product1_content">
+                  오피스 문서 작성에서 데이터 활용까지,<br />
+                  한컴오피스를 통한 업무 생산성 향상을 경험하세요.
+                </div>
+                <button
+                  type="button"
+                  onclick="cardreverse('btn1')"
+                  class="btn_style font"
+                  id="btn1"
+                >
+                  자세히 보기
+                  <img
+                    class="check_img img_orgin_style"
+                    src="./Img/check.png"
+                    alt="check"
+                  />
+                </button>
+              </div>
+              <div class="back">
+                <div class="back_title">OFFICE</div>
+                <div>
+                  <table class="back_table">
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴글</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴워드</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴쇼</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴셀</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴PDF</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
+
           <!-- product02 -->
-          <div class="product2" data-aos="slide-up">
-            <div class="product1_img">
-              <img
-                class="product_img_style img_orgin_style"
-                src="./Img/sdk.png"
-                alt="sdk"
-              />
-            </div>
-            <div class="product1_title">SDK</div>
-            <div class="product1_content">
-              컴터의 오랜 기술과 노하우를 모듈화한 SDK를<br />자사의
-              소프트웨어에 새롭게 담아보세요.
-            </div>
-            <div class="product1_btn">
-              <button type="button" class="btn_style">
-                자세히 보기
-                <img
-                  class="check_img img_orgin_style"
-                  src="./Img/check.png"
-                  alt="check"
-                />
-              </button>
+          <div
+            class="filp_box"
+            data-aos="slide-up"
+            data-aos-delay="150"
+            data-aos-duration="500"
+          >
+            <div class="flip_2">
+              <div class="front">
+                <div class="product1_img">
+                  <img
+                    class="product_img_style img_orgin_style"
+                    src="./Img/sdk.png"
+                    alt="sdk"
+                  />
+                </div>
+                <div class="product1_title">SDK</div>
+                <div class="product1_content">
+                  컴터의 오랜 기술과 노하우를 모듈화한 SDK를<br />자사의
+                  소프트웨어에 새롭게 담아보세요.
+                </div>
+                <button
+                  type="button"
+                  onclick="cardreverse('btn2')"
+                  class="btn_style font"
+                  id="btn2"
+                >
+                  자세히 보기
+                  <img
+                    class="check_img img_orgin_style"
+                    src="./Img/check.png"
+                    alt="check"
+                  />
+                </button>
+              </div>
+              <div class="back">
+                <div class="back_title">SDK</div>
+                <div>
+                  <table class="back_table">
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴터오피스 SDK</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴터 SDK</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴셀 SDK</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
           <!-- product03 -->
-          <div class="product3" data-aos="slide-up">
-            <div class="product1_img">
-              <img
-                class="product_img_style img_orgin_style"
-                src="./Img/service.png"
-                alt="service"
-              />
-            </div>
-            <div class="product1_title">SERVICE</div>
-            <div class="product1_content">
-              함께 연결되는 성장과 즐거움 <br />
-              새로운 컴터를 가장 먼저 만나보세요.
-            </div>
-            <div class="product1_btn">
-              <button type="button" class="btn_style">
-                자세히 보기
-                <img
-                  class="check_img img_orgin_style"
-                  src="./Img/check.png"
-                  alt="check"
-                />
-              </button>
+          <div
+            class="filp_box"
+            data-aos="slide-up"
+            data-aos-delay="300"
+            data-aos-duration="500"
+          >
+            <div class="flip_3">
+              <div class="front">
+                <div class="product1_img">
+                  <img
+                    class="product_img_style img_orgin_style"
+                    src="./Img/service.png"
+                    alt="service"
+                  />
+                </div>
+                <div class="product1_title font">SERVICE</div>
+                <div class="product1_content font">
+                  함께 연결되는 성장과 즐거움 <br />
+                  새로운 컴터를 가장 먼저 만나보세요.
+                </div>
+                <button
+                  type="button"
+                  onclick="cardreverse('btn3')"
+                  class="btn_style font"
+                  id="btn2"
+                >
+                  자세히 보기
+                  <img
+                    class="check_img img_orgin_style"
+                    src="./Img/check.png"
+                    alt="check"
+                  />
+                </button>
+              </div>
+              <div class="back">
+                <div class="back_title">Service</div>
+                <div>
+                  <table class="back_table">
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴터독스</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴터타자</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴터싸인</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="td_style">
+                          <li>컴터디벨로퍼</li>
+                          <img
+                            class="more_up_img img_orgin_style"
+                            src="./Img/more_up.png"
+                            alt="more_up"
+                          />
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
         <!-- main04 - Announce -->
         <div class="Aunnounce_title">
-          <div class="main_title_font">Announce</div>
-          <div class="announce_all_look">전체보기</div>
+          <div class="main_title_font font">Announce</div>
+          <div class="announce_all_look font">전체보기</div>
         </div>
         <div class="main_Announce_style">
-          <table class="table_style">
+          <table class="table_style font">
             <tr>
-              <td>한글과컴터 공식 홈페이지 접속 오류 조치 중(2025.01.07)</td>
+              <td class="cursor_point">
+                한글과컴터 공식 홈페이지 접속 오류 조치 중(2025.01.07)
+              </td>
             </tr>
             <tr>
               <td>한글과컴터 공식 홈페이지 리뉴얼 오푼 준비 중 (2025.01.01)</td>
@@ -454,21 +672,21 @@
 
         <!-- main05 - Event -->
         <div class="Aunnounce_title">
-          <div class="main_title_font">Event</div>
-          <div class="announce_all_look">전체보기</div>
+          <div class="main_title_font font">Event</div>
+          <div class="announce_all_look font">전체보기</div>
         </div>
         <div class="main_Event_style">
           <!-- Event01 -->
           <div class="event01" data-aos="slide-up">
-            <div class="evnet_title">Evnet</div>
-            <div class="evnet_main">리뉴얼 <br />오픈 이벤트</div>
-            <div class="event_sub">
+            <div class="evnet_title font">Evnet</div>
+            <div class="evnet_main font">리뉴얼 <br />오픈 이벤트</div>
+            <div class="event_sub font">
               한글과컴터 공식 홈페이지 리뉴얼 기념 예정
             </div>
           </div>
           <!-- Event02 -->
           <div class="event02" data-aos="slide-up">
-            <div class="evnet_title">Release</div>
+            <div class="evnet_title font">Release</div>
             <div class="event02_img_style">
               <img
                 class="img_orgin_style"
@@ -476,8 +694,8 @@
                 alt="officegroup"
               />
             </div>
-            <div class="evnet02_title">데이터로 열리는 새로운 세상</div>
-            <div class="event02_sub">
+            <div class="evnet02_title font">데이터로 열리는 새로운 세상</div>
+            <div class="event02_sub font">
               오픈소스를 넘어 데이터로, <br />모든 무서를 체계적으로 관리해
               보세요.
             </div>
@@ -490,86 +708,104 @@
             <div class="footer_company">
               <div class="footer_company_col1">
                 <div class="footer_company_title_font">회사소개</div>
-                <div class="footer_company_title_font">회사개요</div>
-                <div class="footer_company_content_font">오시는길</div>
-                <div class="footer_company_content_font">사회공헌</div>
-                <div class="footer_company_content_font">IR</div>
+                <div class="footer_company_content_font font">회사개요</div>
+                <div class="footer_company_content_font font">오시는길</div>
+                <div class="footer_company_content_font font">사회공헌</div>
+                <div class="footer_company_content_font font">IR</div>
               </div>
               <div class="footer_company_col2">
-                <div class="footer_company_title_font">회사소식</div>
-                <div class="footer_company_content_font">공지사항</div>
-                <div class="footer_company_content_font">뉴스/홍보</div>
-                <div class="footer_company_content_font">이벤트</div>
-                <div class="footer_company_content_font">인재채용</div>
+                <div class="footer_company_title_font font">회사소식</div>
+                <div class="footer_company_content_font font">공지사항</div>
+                <div class="footer_company_content_font font">뉴스/홍보</div>
+                <div class="footer_company_content_font font">이벤트</div>
+                <div class="footer_company_content_font font">인재채용</div>
               </div>
               <div class="footer_company_col3">
-                <div class="footer_company_orange_font">개인정보처리방침</div>
-                <div class="footer_company_content_font">이용약관</div>
+                <div class="footer_company_orange_font font">
+                  개인정보처리방침
+                </div>
+                <div class="footer_company_content_font font">이용약관</div>
               </div>
             </div>
             <div class="footer_group">
-              <div class="dropdown">
+              <div class="btn-group dropup">
                 <button
-                  class="btn btn-secondary dropdown-toggle"
-                  type="button"
+                  class="btn btn-secondary dropdown-toggle font"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
+                  type="button"
                 >
                   그룹사 선택
                 </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">컴터그룹</a></li>
-                  <li><a class="dropdown-item" href="#">한글과컴터</a></li>
-                  <li><a class="dropdown-item" href="#">컴터위드</a></li>
-                  <li><a class="dropdown-item" href="#">컴터라이프케어</a></li>
-                  <li><a class="dropdown-item" href="#">Thinkfree</a></li>
-                  <li><a class="dropdown-item" href="#">컴터이노스트림</a></li>
+                <ul class="dropdown-menu font">
+                  <li><a class="dropdown-item font" href="#">컴터그룹</a></li>
+                  <li><a class="dropdown-item font" href="#">한글과컴터</a></li>
+                  <li><a class="dropdown-item font" href="#">컴터위드</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">컴터밸류인베스트먼트</a>
+                    <a class="dropdown-item font" href="#">컴터라이프케어</a>
                   </li>
-                  <li><a class="dropdown-item" href="#">컴터케어링크</a></li>
+                  <li><a class="dropdown-item font" href="#">Thinkfree</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">컴터유비마이크로</a>
+                    <a class="dropdown-item font" href="#">컴터이노스트림</a>
                   </li>
-                  <li><a class="dropdown-item" href="#">UDM</a></li>
-                  <li><a class="dropdown-item" href="#">엑드엑스컴퍼니</a></li>
-                  <li><a class="dropdown-item" href="#">컴터아카데미</a></li>
-                  <li><a class="dropdown-item" href="#">총리움</a></li>
-                  <li><a class="dropdown-item" href="#">컴터금거래소</a></li>
-                  <li><a class="dropdown-item" href="#">컴터주얼리</a></li>
-                  <li><a class="dropdown-item" href="#">컴터인스페이스</a></li>
-                  <li><a class="dropdown-item" href="#">컴터어썸텍</a></li>
+                  <li>
+                    <a class="dropdown-item font" href="#"
+                      >컴터밸류인베스트먼트</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item font" href="#">컴터케어링크</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item font" href="#">컴터유비마이크로</a>
+                  </li>
+                  <li><a class="dropdown-item font" href="#">UDM</a></li>
+                  <li>
+                    <a class="dropdown-item font" href="#">엑드엑스컴퍼니</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item font" href="#">컴터아카데미</a>
+                  </li>
+                  <li><a class="dropdown-item font" href="#">총리움</a></li>
+                  <li>
+                    <a class="dropdown-item font" href="#">컴터금거래소</a>
+                  </li>
+                  <li><a class="dropdown-item font" href="#">컴터주얼리</a></li>
+                  <li>
+                    <a class="dropdown-item font" href="#">컴터인스페이스</a>
+                  </li>
+                  <li><a class="dropdown-item font" href="#">컴터어썸텍</a></li>
                 </ul>
               </div>
             </div>
-            <div class="copyright footer_company_content_font">
+            <div class="copyright footer_company_content_font font">
               Copyright ⓒ 2026 COMTER Inc. All rights reserved.
             </div>
           </div>
           <div class="footer_right">
             <div class="footer_company_content footer_company_content_font">
-              <div class="footer_content">
+              <div class="footer_content font">
                 <div class="footer_content_font">(주)한글과컴터</div>
                 <div>대표자: 이정민</div>
               </div>
-              <div class="footer_content">
+              <div class="footer_content font">
                 <div class="footer_content_font">
                   사업자등록번호 : 107-11-50000
                 </div>
                 <div>2012-경기-1000</div>
               </div>
-              <div class="footer_content">
+              <div class="footer_content font">
                 경기도 성남시 분당구 대왕판교로644번길 46 컴터타워 11층
               </div>
               <div class="footer_content">
-                <div class="footer_content_font">
+                <div class="footer_content_font font">
                   고객 지원 : 1566-0000(국내, 평일 9시~18시)
                 </div>
                 <div>support@comter.com</div>
               </div>
-              <div class="footer_content">사업자정보 확인</div>
+              <div class="footer_content font">사업자정보 확인</div>
             </div>
-            <div class="footer_logo">COMTER</div>
+            <div class="footer_logo font">COMTER</div>
             <div class="footer_side_loge">
               <div class="footer_img_style">
                 <img
