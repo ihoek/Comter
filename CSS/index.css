@@ -449,6 +449,12 @@ html {
   font-size: 15px;
   padding-bottom: 20px;
 }
+.product1_btn {
+  padding-top: 20px;
+}
+.product2_btn {
+  padding-top: 40px;
+}
 .flip-box {
   perspective: 1000px;
 }
@@ -575,6 +581,10 @@ tr {
 .footer_group {
   padding: 30px 0px 60px 0px;
 }
+.footer_btn {
+  color: white;
+  position: relative;
+}
 .footer_logo {
   display: flex;
   justify-content: flex-end;
@@ -591,4 +601,30 @@ tr {
 }
 .footer_img_style {
   padding-right: 20px;
+}
+.footer_dropdown_menu {
+  position: absolute;
+  display: none;
+  background-color: white;
+  border: 1px solid black;
+  z-index: 1;
+  bottom: 10px;
+}
+.footer_dropdown_item {
+  color: black;
+  cursor: pointer;
+  font-size: 12px;
+}
+.footer_dropdown_item:hover {
+  background-color: gainsboro;
+}
+ul > div {
+  padding: 5px 0px 5px 20px;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 170px;
+  padding-left: 0px;
 }

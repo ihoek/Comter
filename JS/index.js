@@ -189,3 +189,15 @@ function cardreverse(element) {
     }
   }
 }
+
+let group = document.getElementById("footer_btn_content");
+
+group.addEventListener("click", () => {
+  const dropdown = document.querySelector(".footer_dropdown_menu");
+  dropdown.style.display = "flex";
+});
+
+group.addEventListener("blur", () => {
+  const dropdown = document.querySelector(".footer_dropdown_menu");
+  dropdown.style.display = "";
+});
