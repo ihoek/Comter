@@ -138,25 +138,6 @@ main_img.addEventListener("mousedown", (event) => {
   document.addEventListener("mouseup", handleMouseUp);
 });
 
-// x좌표의 차이를 계산하는 함수
-function calculateDifference(start, end) {
-  return end - start; // x좌표의 차이를 반환
-}
-/*main_img.addEventListener("drag", () => {
-  main_img.addEventListener("mouseup", (event) => {
-    let startX = event.pageX;
-    return startX;
-  });
-  main_img.addEventListener("mousedown", (event) => {
-    let endX = event.pageX;
-    return endX;
-  });
-
-  if (startX - endX >= 0) {
-    console.log("1");
-  }
-});*/
-
 //자세히 보기 누르면 카드 뒤집기
 function cardreverse(element) {
   if (element === "btn1") {
