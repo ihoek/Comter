@@ -2,6 +2,7 @@ let elem = document.querySelector(".flip_1");
 let elem2 = document.querySelector(".flip_2");
 let elem3 = document.querySelector(".flip_3");
 
+let num = [1, 2, 3, 4];
 let title = [
   "컴터어시스턴스 출시",
   "컴터피디아 출시",
@@ -63,13 +64,15 @@ function left_btn() {
 
 //main01 우 버튼 클릭 시 숫자 늘어 남
 function right_btn() {
-  const num = Number(document.getElementById("main_num").innerText);
+  let num = Number(document.getElementById("main_num").innerText);
   if (num >= 4) {
     document.getElementById("main_num").innerText = 1;
+    changeMainContent(Number(document.getElementById("main_num").innerText));
   } else {
     document.getElementById("main_num").innerText = num + 1;
+    changeMainContent(Number(document.getElementById("main_num").innerText));
   }
-  changeMainContent(Number(document.getElementById("main_num").innerText));
+  4;
 }
 
 //main 숫자에 따른 내용 변경 함수
@@ -104,39 +107,6 @@ const changeMainContent = (number) => {
       bdclist[3];
   }
 };
-
-//마우스 이동에 따른 사진 전환
-
-let startX = 0;
-let endX = 0;
-
-// 클릭했을 때의 x좌표 기록
-main_img.addEventListener("mousedown", (event) => {
-  startX = event.clientX;
-  console.log(`클릭한 순간의 x좌표: ${startX}`);
-
-  // 드래그 중 x좌표 업데이트
-  const handleMouseMove = (e) => {
-    console.log(`드래그 중 x좌표: ${e.clientX}`);
-  };
-
-  // 드래그 중 이벤트 추가
-  document.addEventListener("mousemove", handleMouseMove);
-
-  // 마우스를 떼면 x좌표 기록 및 이벤트 제거
-  const handleMouseUp = (e) => {
-    endX = e.clientX;
-    console.log(`떼었을 때의 x좌표: ${endX}`);
-
-    const difference = calculateDifference(startX, endX);
-    console.log(`x좌표의 차이: ${difference}`);
-
-    document.removeEventListener("mousemove", handleMouseMove);
-    document.removeEventListener("mouseup", handleMouseUp);
-  };
-
-  document.addEventListener("mouseup", handleMouseUp);
-});
 
 //자세히 보기 누르면 카드 뒤집기
 function cardreverse(element) {
@@ -181,4 +151,45 @@ group.addEventListener("click", () => {
 group.addEventListener("blur", () => {
   const dropdown = document.querySelector(".footer_dropdown_menu");
   dropdown.style.display = "";
+});
+
+//swiper api
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  loop: true, // 루프 기능
+  autoplay: {
+    delay: 3000, // 3초마다 자동 재생
+  },
+});
+
+//swiper index 탐색 후 해당으로 이동
+swiper.on("transitionEnd", function () {
+  //console.log("now index :::", swiper.realIndex);
+  if (swiper.realIndex === 0) {
+    changeMainContent(1);
+    document.getElementById("main_num").innerText = 1;
+  } else if (swiper.realIndex === 1) {
+    changeMainContent(2);
+    document.getElementById("main_num").innerText = 2;
+  } else if (swiper.realIndex === 2) {
+    changeMainContent(3);
+    document.getElementById("main_num").innerText = 3;
+  } else if (swiper.realIndex === 3) {
+    changeMainContent(4);
+    document.getElementById("main_num").innerText = 4;
+  }
 });

@@ -105,11 +105,16 @@ html {
   left: 40%;
   width: 60%;
   height: 600px;
+  overflow: hidden;
+}
+.swiper {
+  width: 100%;
+  height: 600px;
 }
 .swiper_img {
-  width: 100%;
-  height: 100%;
+  height: 600px;
 }
+
 .main_left_main_font {
   padding: 0px 0px 20px 0px;
   color: white;
