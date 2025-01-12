@@ -702,6 +702,7 @@ ul {
   margin: auto 20px;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 .menu_body {
   width: 100%;
@@ -715,7 +716,6 @@ ul {
 .menu_header_content {
   font-size: 25px;
 }
-
 /*반응형*/
 @media screen and (max-width: 1280px) {
   .header_mid {

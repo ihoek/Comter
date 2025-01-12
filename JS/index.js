@@ -31,6 +31,29 @@ let bdclist = ["#0070C0", "#886756", "#0070C0", "#000D6D"];
 
 const main_img = document.getElementById("main_container");
 
+const menuBody = document.getElementById("menu_body");
+const content = document.getElementById("menu_header_content");
+
+// 메뉴 데이터 정의
+const menuItems = [
+  { id: "menu_ai", text: "AI" },
+  { id: "menu_product", text: "제품" },
+  { id: "menu_service", text: "서비스" },
+  { id: "menu_support", text: "지원" },
+];
+const menuItem_ai_title = ["컴터AI", "한컴얼라이언스", "COMTER AI"];
+const menuItem_ai_content = [
+  ["컴터어시스턴스", "컴터피디아"],
+  ["컴터AI뉴스", "컴터AI뉴스 히스토리"],
+];
+const menuItem_product_title = ["오피스", "SDK", "솔루션"];
+const menuItem_service_title = [
+  "컴터독스",
+  "컴터타자",
+  "컴터싸인",
+  "컴터디벨로퍼",
+];
+const menuItem_support_title = ["지원센터", "자주 묻는 질문", "다운로드 센터"];
 //top btn 구현
 function toTop() {
   window.scrollTo({
@@ -38,17 +61,6 @@ function toTop() {
     behavior: "smooth",
   });
 }
-
-//스크롤 y값 출력
-window.addEventListener("scroll", function () {
-  //스크롤 할 경우
-  let scrollY = this.scrollY;
-  //console.log(parseInt(scrollY));
-  if (parseInt(scrollY) >= 666) {
-    //스크롤이 666이상이면
-    //this.document.style.marginTop = `-10px`;
-  }
-});
 
 //main01 좌 버튼 클릭 시 숫자 줄어 듦
 function left_btn() {
@@ -195,54 +207,75 @@ document.addEventListener("DOMContentLoaded", () => {
   const burgerIcon = document.getElementById("burger_icon");
   const slideMenu = document.getElementById("slide_menu");
   const closeMenu = document.getElementById("close_menu");
+  const closeMenuAll = document.getElementById("close_menu_all");
+
+  const menuItem_ai_content = ["컴터AI 설명", "한컴얼라이언스 설명"];
+  let menuState = 1; // 현재 위치 상태
 
   // 버거 메뉴 열기
   burgerIcon.addEventListener("click", () => {
     slideMenu.classList.add("open");
+    initializeMenu();
   });
-
-  // 버거 메뉴 닫기
+  // 슬라이드 메뉴 닫기
   closeMenu.addEventListener("click", () => {
-    console.log("1");
+    if (menuState === 2) {
+      // 2단계(서브 메뉴)일 경우, 메인 메뉴로 돌아가기
+      initializeMenu();
+    } else {
+      // 1단계(메인 메뉴)일 경우, 슬라이드 메뉴 닫기
+      slideMenu.classList.remove("open");
+    }
+  });
+  // 버거 메뉴 닫기
+  closeMenuAll.addEventListener("click", () => {
     slideMenu.classList.remove("open");
   });
-});
 
-//menu_header_content 내용 추가
-const ai = document.getElementById("menu_ai");
-const product = document.getElementById("menu_product");
-const service = document.getElementById("menu_service");
-const support = document.getElementById("menu_support");
-const content = document.getElementById("menu_header_content");
+  // 초기 메뉴 생성
+  function initializeMenu() {
+    menuState = 1; // 메뉴 상태를 초기화
+    menuBody.innerHTML = ""; // 기존 메뉴 제거
+    content.innerText = ""; // 헤더 내용 초기화
 
-document.addEventListener("DOMContentLoaded", () => {
-  const menuBody = document.getElementById("menu_body");
-  const content = document.getElementById("menu_header_content");
+    menuItems.forEach((item) => {
+      const menuDiv = document.createElement("div");
+      menuDiv.classList.add("menu_body_style");
+      menuDiv.id = item.id;
+      menuDiv.innerText = item.text;
 
-  // 메뉴 데이터 정의
-  const menuItems = [
-    { id: "menu_ai", text: "AI" },
-    { id: "menu_product", text: "제품" },
-    { id: "menu_service", text: "서비스" },
-    { id: "menu_support", text: "지원" },
-  ];
-  const menuItem_ai = [""];
+      // 클릭 이벤트 추가 - 하위 메뉴 표시
+      menuDiv.addEventListener("click", () => {
+        content.innerText = item.text;
+        if (item.id === "menu_ai") {
+          updateMenuBody(menuItem_ai_title);
+        } else if (item.id === "menu_product") {
+          updateMenuBody(menuItem_product_title);
+        } else if (item.id === "menu_service") {
+          updateMenuBody(menuItem_service_title);
+        } else if (item.id === "menu_support") {
+          updateMenuBody(menuItem_support_title);
+        }
+        menuState = 2; // 상태를 2단계로 변경
+      });
 
-  // 메뉴 동적 생성
-  menuItems.forEach((item) => {
-    const menuDiv = document.createElement("div");
-    menuDiv.classList.add("menu_body_style");
-    menuDiv.id = item.id;
-    menuDiv.innerText = item.text;
-
-    // 클릭 이벤트 추가
-    menuDiv.addEventListener("click", () => {
-      content.innerText = item.text;
+      menuBody.appendChild(menuDiv);
     });
+  }
 
-    // 메뉴 추가
-    menuBody.appendChild(menuDiv);
-  });
+  // 서브 메뉴 생성
+  function updateMenuBody(subMenuItems) {
+    menuBody.innerHTML = ""; // 기존 메뉴 제거
 
-  //각 클릭 시 body 변경
+    subMenuItems.forEach((subItem) => {
+      const subMenuDiv = document.createElement("div");
+      subMenuDiv.classList.add("menu_body_style");
+      subMenuDiv.innerText = subItem;
+
+      menuBody.appendChild(subMenuDiv);
+    });
+  }
+
+  // 초기 메뉴 설정
+  initializeMenu();
 });
