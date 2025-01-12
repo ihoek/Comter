@@ -41,11 +41,6 @@ const menuItems = [
   { id: "menu_service", text: "서비스" },
   { id: "menu_support", text: "지원" },
 ];
-const menuItem_ai_title = ["컴터AI", "한컴얼라이언스", "COMTER AI"];
-const menuItem_ai_content = [
-  ["컴터어시스턴스", "컴터피디아"],
-  ["컴터AI뉴스", "컴터AI뉴스 히스토리"],
-];
 const menuItem_product_title = ["오피스", "SDK", "솔루션"];
 const menuItem_service_title = [
   "컴터독스",
@@ -190,7 +185,6 @@ const swiper = new Swiper(".swiper", {
 
 //swiper index 탐색 후 해당으로 이동
 swiper.on("transitionEnd", function () {
-  //console.log("now index :::", swiper.realIndex);
   if (swiper.realIndex === 0) {
     changeMainContent(1);
   } else if (swiper.realIndex === 1) {
@@ -202,39 +196,51 @@ swiper.on("transitionEnd", function () {
   }
 });
 
-//슬라이드 햄버거 메뉴
+// burger 메뉴
 document.addEventListener("DOMContentLoaded", () => {
   const burgerIcon = document.getElementById("burger_icon");
   const slideMenu = document.getElementById("slide_menu");
   const closeMenu = document.getElementById("close_menu");
   const closeMenuAll = document.getElementById("close_menu_all");
+  const menuBody = document.getElementById("menu_body");
+  const content = document.getElementById("menu_header_content");
 
-  const menuItem_ai_content = ["컴터AI 설명", "한컴얼라이언스 설명"];
-  let menuState = 1; // 현재 위치 상태
+  let menuState = 1; // 현재 메뉴 상태 (1: 메인 메뉴, 2: 하위 메뉴)
 
-  // 버거 메뉴 열기
-  burgerIcon.addEventListener("click", () => {
-    slideMenu.classList.add("open");
-    initializeMenu();
-  });
-  // 슬라이드 메뉴 닫기
-  closeMenu.addEventListener("click", () => {
-    if (menuState === 2) {
-      // 2단계(서브 메뉴)일 경우, 메인 메뉴로 돌아가기
-      initializeMenu();
-    } else {
-      // 1단계(메인 메뉴)일 경우, 슬라이드 메뉴 닫기
-      slideMenu.classList.remove("open");
-    }
-  });
-  // 버거 메뉴 닫기
-  closeMenuAll.addEventListener("click", () => {
-    slideMenu.classList.remove("open");
-  });
+  // 메뉴 데이터
+  const menuItems = [
+    { id: "menu_ai", text: "AI" },
+    { id: "menu_product", text: "제품" },
+    { id: "menu_service", text: "서비스" },
+    { id: "menu_support", text: "지원" },
+  ];
 
+  const menuItem_ai_title = ["컴터AI", "한컴얼라이언스", "COMTER AI"]; // COMTER AI 추가
+  const menuItem_ai_content = [
+    ["컴터어시스턴스", "컴터피디아"],
+    ["컴터AI뉴스", "컴터AI뉴스 히스토리"],
+  ];
+  const menuItem_product_content = [
+    ["Window", "macOS", "Android", "iOS", "컴터오피스 Web", "컴터오피스 뷰어"],
+    [
+      "컴터오피스 SDk",
+      "컴터 SDK",
+      "컴셀 SDK",
+      "컴PDF SDK",
+      "컴터 AI SDK",
+      "컴터 오스 SDK",
+    ],
+    ["컴터 데이터 로더"],
+  ];
+  const menuItem_service_content = [];
+  const menuItem_support_content = [
+    ["문의하기", "제품별 지원 현황", "온라인 견적 시청", "공지사항"],
+    ["자주 묻는 질문", "제품 구매처", "제품 등록 안내", "정품인증 안내"],
+    ["다운로드", "공공 컴터", "HWP/OWPML 형식", "컴터폰트"],
+  ];
   // 초기 메뉴 생성
   function initializeMenu() {
-    menuState = 1; // 메뉴 상태를 초기화
+    menuState = 1; // 메뉴 상태 초기화
     menuBody.innerHTML = ""; // 기존 메뉴 제거
     content.innerText = ""; // 헤더 내용 초기화
 
@@ -248,13 +254,13 @@ document.addEventListener("DOMContentLoaded", () => {
       menuDiv.addEventListener("click", () => {
         content.innerText = item.text;
         if (item.id === "menu_ai") {
-          updateMenuBody(menuItem_ai_title);
+          updateMenuBody(menuItem_ai_title, menuItem_ai_content);
         } else if (item.id === "menu_product") {
-          updateMenuBody(menuItem_product_title);
+          updateMenuBody(menuItem_product_title, menuItem_product_content);
         } else if (item.id === "menu_service") {
-          updateMenuBody(menuItem_service_title);
+          updateMenuBody(menuItem_service_title, menuItem_service_content);
         } else if (item.id === "menu_support") {
-          updateMenuBody(menuItem_support_title);
+          updateMenuBody(menuItem_support_title, menuItem_support_content);
         }
         menuState = 2; // 상태를 2단계로 변경
       });
@@ -264,17 +270,82 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 서브 메뉴 생성
-  function updateMenuBody(subMenuItems) {
+  function updateMenuBody(subMenuItems, subContentItems) {
     menuBody.innerHTML = ""; // 기존 메뉴 제거
 
-    subMenuItems.forEach((subItem) => {
+    subMenuItems.forEach((subItem, index) => {
       const subMenuDiv = document.createElement("div");
       subMenuDiv.classList.add("menu_body_style");
       subMenuDiv.innerText = subItem;
 
-      menuBody.appendChild(subMenuDiv);
+      if (
+        subItem === "COMTER AI" ||
+        subItem === "컴터독스" ||
+        subItem === "컴터타자" ||
+        subItem === "컴터싸인" ||
+        subItem === "컴터디벨로퍼"
+      ) {
+        // add/minus 없이 단순 텍스트 추가
+        menuBody.appendChild(subMenuDiv);
+      } else {
+        // add/minus 아이콘과 드롭박스 추가
+        const addIcon = document.createElement("img");
+        addIcon.src = "./Img/add.png"; // add 이미지 경로
+        addIcon.alt = "Add";
+        addIcon.classList.add("icon_style");
+        let isExpanded = false;
+
+        // 드롭박스 내용 컨테이너
+        const dropBox = document.createElement("div");
+        dropBox.classList.add("dropbox_style");
+        dropBox.style.display = "none"; // 초기에는 숨김
+
+        // 드롭박스 내용 리스트 생성
+        subContentItems[index]?.forEach((contentItem) => {
+          const contentDiv = document.createElement("div");
+          contentDiv.classList.add("dropbox_item_style");
+          contentDiv.innerText = contentItem;
+          dropBox.appendChild(contentDiv);
+        });
+
+        // addIcon 클릭 이벤트
+        addIcon.addEventListener("click", () => {
+          isExpanded = !isExpanded;
+          if (isExpanded) {
+            addIcon.src = "./Img/minus.png"; // minus 이미지 경로
+            dropBox.style.display = "block"; // 드롭박스 표시
+          } else {
+            addIcon.src = "./Img/add.png"; // add 이미지 경로
+            dropBox.style.display = "none"; // 드롭박스 숨김
+          }
+        });
+
+        // subMenuDiv에 addIcon과 dropBox 추가
+        subMenuDiv.appendChild(addIcon);
+        menuBody.appendChild(subMenuDiv);
+        menuBody.appendChild(dropBox);
+      }
     });
   }
+
+  // 슬라이드 메뉴 열기
+  burgerIcon.addEventListener("click", () => {
+    slideMenu.classList.add("open");
+    initializeMenu(); // 초기 메뉴 설정
+  });
+
+  // 슬라이드 메뉴 닫기
+  closeMenu.addEventListener("click", () => {
+    if (menuState === 2) {
+      initializeMenu(); // 메인 메뉴로 돌아가기
+    } else {
+      slideMenu.classList.remove("open"); // 메뉴 닫기
+    }
+  });
+
+  closeMenuAll.addEventListener("click", () => {
+    slideMenu.classList.remove("open");
+  });
 
   // 초기 메뉴 설정
   initializeMenu();
