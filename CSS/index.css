@@ -633,3 +633,104 @@ ul {
   width: 170px;
   padding-left: 0px;
 }
+.swiper_right {
+  position: relative;
+  left: 40px;
+}
+.swiper_left {
+  position: relative;
+
+  left: -40px;
+}
+
+/*반응형으로 추가된 css */
+.responsive_header_img {
+  display: none;
+}
+.side_container {
+  /*display: none;*/
+  top: 0;
+  left: 0;
+}
+
+/*burger*/
+.burger_menu_container {
+  position: relative;
+  z-index: 0;
+}
+.slide_menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  transition: all 0.3s ease;
+  flex-direction: column;
+}
+.open {
+  left: 0;
+}
+.menu_header {
+  position: sticky;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: white;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  padding: 0px 150px;
+}
+.menuheader_left {
+  width: 15%;
+}
+.menuheader_mid {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 63%;
+  height: 70px;
+}
+.menu_heaer_right {
+  display: flex;
+  width: 17%;
+}
+.menu_header_img {
+  margin: auto 20px;
+  width: 30px;
+  height: 30px;
+}
+.menu_body {
+  width: 100%;
+  padding: 20px 50px;
+  font-size: 20px;
+}
+.menu_body_style {
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+.menu_header_content {
+  font-size: 25px;
+}
+
+/*반응형*/
+@media screen and (max-width: 1280px) {
+  .header_mid {
+    display: none;
+  }
+  #header_detail {
+    display: none;
+  }
+  .responsive_header_img {
+    display: flex;
+    cursor: pointer;
+  }
+  .side_container {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+  }
+}

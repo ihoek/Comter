@@ -248,7 +248,7 @@
               <img class="img_orgin_style" src="./Img/login.png" alt="login" />
             </div>
             <div>
-              <button type="button" class="btn_style">
+              <button type="button" class="btn_style" id="header_detail">
                 자세히 보기
                 <img
                   class="check_img img_orgin_style"
@@ -256,6 +256,55 @@
                   alt="bubble"
                 />
               </button>
+              <!-- 반응형 header burger img -->
+              <div class="burger_menu_container">
+                <img
+                  class="responsive_header_img check_img img_orgin_style"
+                  src="./Img/menu.png"
+                  alt="menu"
+                  id="burger_icon"
+                />
+
+                <!-- Slide Menu -->
+                <div class="slide_menu" id="slide_menu">
+                  <div class="menu_header">
+                    <div class="menuheader_left menu_header_img">
+                      <img
+                        class="img_orgin_style"
+                        src="./Img/left_arrow_black.png"
+                        alt="left_arrow"
+                        id="close_menu"
+                      />
+                    </div>
+                    <!-- menu_header_content -->
+                    <div class="menuheader_mid">
+                      <div
+                        class="menu_header_content font"
+                        id="menu_header_content"
+                      ></div>
+                    </div>
+                    <div class="menu_heaer_right">
+                      <div class="menu_header_img">
+                        <img
+                          class="img_orgin_style"
+                          src="./Img/login.png"
+                          alt="menu_login"
+                        />
+                      </div>
+                      <div class="menu_header_img">
+                        <img
+                          class="img_orgin_style"
+                          src="./Img/menu.png"
+                          alt="menu"
+                          id="close_menu"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Slide menu body -->
+                  <div class="menu_body font" id="menu_body"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

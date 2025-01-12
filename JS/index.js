@@ -53,7 +53,6 @@ window.addEventListener("scroll", function () {
 //main01 좌 버튼 클릭 시 숫자 줄어 듦
 function left_btn() {
   let num = Number(document.getElementById("main_num").innerText);
-
   if (num <= 1) {
     document.getElementById("main_num").innerText = 4;
   } else {
@@ -67,17 +66,16 @@ function right_btn() {
   let num = Number(document.getElementById("main_num").innerText);
   if (num >= 4) {
     document.getElementById("main_num").innerText = 1;
-    changeMainContent(Number(document.getElementById("main_num").innerText));
   } else {
     document.getElementById("main_num").innerText = num + 1;
-    changeMainContent(Number(document.getElementById("main_num").innerText));
   }
-  4;
+  changeMainContent(Number(document.getElementById("main_num").innerText));
 }
 
 //main 숫자에 따른 내용 변경 함수
 const changeMainContent = (number) => {
   if (number === 1) {
+    document.getElementById("main_num").innerText = 1;
     document.getElementById("main01_title").innerText = title[0];
     document.getElementById("main01_sub01").innerText = sub01[0];
     document.getElementById("main01_sub02").innerText = sub02[0];
@@ -85,6 +83,7 @@ const changeMainContent = (number) => {
     document.getElementById("main_container").style.backgroundColor =
       bdclist[0];
   } else if (number === 2) {
+    document.getElementById("main_num").innerText = 2;
     document.getElementById("main01_title").innerText = title[1];
     document.getElementById("main01_sub01").innerText = sub01[1];
     document.getElementById("main01_sub02").innerText = sub02[1];
@@ -92,6 +91,7 @@ const changeMainContent = (number) => {
     document.getElementById("main_container").style.backgroundColor =
       bdclist[1];
   } else if (number === 3) {
+    document.getElementById("main_num").innerText = 3;
     document.getElementById("main01_title").innerText = title[2];
     document.getElementById("main01_sub01").innerText = sub01[2];
     document.getElementById("main01_sub02").innerText = sub02[2];
@@ -99,10 +99,11 @@ const changeMainContent = (number) => {
     document.getElementById("main_container").style.backgroundColor =
       bdclist[2];
   } else if (number === 4) {
+    document.getElementById("main_num").innerText = 4;
+    document.getElementById("main_right_img").src = rightimg[3];
     document.getElementById("main01_title").innerText = title[3];
     document.getElementById("main01_sub01").innerText = sub01[3];
     document.getElementById("main01_sub02").innerText = sub02[3];
-    document.getElementById("main_right_img").src = rightimg[3];
     document.getElementById("main_container").style.backgroundColor =
       bdclist[3];
   }
@@ -142,7 +143,6 @@ function cardreverse(element) {
 }
 
 let group = document.getElementById("footer_btn_content");
-
 group.addEventListener("click", () => {
   const dropdown = document.querySelector(".footer_dropdown_menu");
   dropdown.style.display = "flex";
@@ -172,7 +172,7 @@ const swiper = new Swiper(".swiper", {
 
   loop: true, // 루프 기능
   autoplay: {
-    delay: 3000, // 3초마다 자동 재생
+    delay: 5000, // 5초마다 자동 재생
   },
 });
 
@@ -181,15 +181,68 @@ swiper.on("transitionEnd", function () {
   //console.log("now index :::", swiper.realIndex);
   if (swiper.realIndex === 0) {
     changeMainContent(1);
-    document.getElementById("main_num").innerText = 1;
   } else if (swiper.realIndex === 1) {
     changeMainContent(2);
-    document.getElementById("main_num").innerText = 2;
   } else if (swiper.realIndex === 2) {
     changeMainContent(3);
-    document.getElementById("main_num").innerText = 3;
   } else if (swiper.realIndex === 3) {
     changeMainContent(4);
-    document.getElementById("main_num").innerText = 4;
   }
+});
+
+//슬라이드 햄버거 메뉴
+document.addEventListener("DOMContentLoaded", () => {
+  const burgerIcon = document.getElementById("burger_icon");
+  const slideMenu = document.getElementById("slide_menu");
+  const closeMenu = document.getElementById("close_menu");
+
+  // 버거 메뉴 열기
+  burgerIcon.addEventListener("click", () => {
+    slideMenu.classList.add("open");
+  });
+
+  // 버거 메뉴 닫기
+  closeMenu.addEventListener("click", () => {
+    console.log("1");
+    slideMenu.classList.remove("open");
+  });
+});
+
+//menu_header_content 내용 추가
+const ai = document.getElementById("menu_ai");
+const product = document.getElementById("menu_product");
+const service = document.getElementById("menu_service");
+const support = document.getElementById("menu_support");
+const content = document.getElementById("menu_header_content");
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuBody = document.getElementById("menu_body");
+  const content = document.getElementById("menu_header_content");
+
+  // 메뉴 데이터 정의
+  const menuItems = [
+    { id: "menu_ai", text: "AI" },
+    { id: "menu_product", text: "제품" },
+    { id: "menu_service", text: "서비스" },
+    { id: "menu_support", text: "지원" },
+  ];
+  const menuItem_ai = [""];
+
+  // 메뉴 동적 생성
+  menuItems.forEach((item) => {
+    const menuDiv = document.createElement("div");
+    menuDiv.classList.add("menu_body_style");
+    menuDiv.id = item.id;
+    menuDiv.innerText = item.text;
+
+    // 클릭 이벤트 추가
+    menuDiv.addEventListener("click", () => {
+      content.innerText = item.text;
+    });
+
+    // 메뉴 추가
+    menuBody.appendChild(menuDiv);
+  });
+
+  //각 클릭 시 body 변경
 });
