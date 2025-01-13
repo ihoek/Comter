@@ -352,21 +352,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //footer image 삽입
+
 document.addEventListener("DOMContentLoaded", () => {
   //footer 01
-  const footer_img = document.getElementById("footer_title");
-  const footer_img02 = document.getElementById("footer_title02");
-  const img = new Image();
-  img.src = "./Img/downarrow.png";
-  img.classList.add("footer_img_responsive");
-  img.id = "footer_under_img";
-  footer_img.appendChild(img);
-
-  const img02 = new Image();
-  img02.src = "./Img/downarrow.png";
-  img02.classList.add("footer_img_responsive");
-  img02.id = "footer_under_img";
-  footer_img02.appendChild(img02);
+  const footer_img = document.getElementById("footer_img01");
+  const footer_img02 = document.getElementById("footer_img02");
 
   //down arrow 이미지 클릭시 - 드롭다운 메뉴 활성화
   //column01
@@ -384,11 +374,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let cnt01 = 0;
   footer_title01.addEventListener("click", () => {
     if (cnt01 === 0) {
-      img.src = "./Img/uparrow.png";
+      footer_img.src = "./Img/uparrow.png";
       footer_content01.style.display = "flex";
       cnt01 = 1;
     } else {
-      img.src = "./Img/downarrow.png";
+      footer_img.src = "./Img/downarrow.png";
       footer_content01.style.display = "none";
       cnt01 = 0;
     }
@@ -397,11 +387,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let cnt02 = 0;
   footer_title02.addEventListener("click", () => {
     if (cnt02 === 0) {
-      img02.src = "./Img/uparrow.png";
+      footer_img02.src = "./Img/uparrow.png";
       footer_content02.style.display = "flex";
       cnt02 = 1;
     } else {
-      img02.src = "./Img/downarrow.png";
+      footer_img02.src = "./Img/downarrow.png";
       footer_content02.style.display = "none";
       cnt02 = 0;
     }

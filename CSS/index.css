@@ -94,6 +94,7 @@ html {
   flex-direction: column;
   width: 40%;
   padding: 50px;
+  background-color: #0070c0;
 }
 .main_left_top {
   width: 100%;
@@ -728,11 +729,16 @@ ul {
 .dropbox_item_style {
   padding: 10px 0px;
 }
+.footer_down_img {
+  display: none;
+}
 .footer_img_responsive {
   width: 20px;
   height: 20px;
 }
-
+.res_product {
+  display: none;
+}
 /*반응형 - 1280px 기준*/
 @media screen and (max-width: 1280px) {
   .header_mid {
@@ -807,6 +813,21 @@ ul {
   }
   .footer_side_loge {
     justify-content: flex-start;
+  }
+  .footer_down_img {
+    display: flex;
+    width: 20px;
+    height: 20px;
+  }
+  #footer_col1_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  #footer_col2_title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
