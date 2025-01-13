@@ -87,7 +87,6 @@ html {
   flex-direction: row;
   overflow: hidden;
   width: 100%;
-  background-color: #0070c0;
   border-radius: 50px;
 }
 .main_left {
@@ -515,8 +514,6 @@ tr {
   font-size: 40px;
   padding-bottom: 60px;
 }
-.event_sub {
-}
 .event02 {
   display: flex;
   flex-direction: column;
@@ -736,7 +733,7 @@ ul {
   height: 20px;
 }
 
-/*반응형*/
+/*반응형 - 1280px 기준*/
 @media screen and (max-width: 1280px) {
   .header_mid {
     display: none;
@@ -810,5 +807,155 @@ ul {
   }
   .footer_side_loge {
     justify-content: flex-start;
+  }
+}
+
+/*반응형 - 2차 1024px 기준*/
+@media screen and (max-width: 1024px) {
+  .main_container {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+    width: 100%;
+    height: 850px;
+    border-radius: 50px;
+  }
+  .main_style {
+    width: 100%;
+    display: flex;
+    padding: 30px;
+    height: 850px;
+  }
+  .main_right {
+    display: flex;
+    left: 40%;
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+  }
+  .main_left {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 40%;
+    padding: 50px;
+  }
+  .swiper_img {
+    height: 600px;
+  }
+
+  .main_left_main_font {
+    font-size: 25px;
+  }
+  .main_left_top {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 35%;
+  }
+  .main_left_mid {
+    display: flex;
+    padding-top: 30px;
+    justify-content: center;
+    height: 35%;
+  }
+  .main_left_bot {
+    display: flex;
+    justify-content: center;
+    height: 30%;
+  }
+  .main_left_sub_font {
+    font-size: 12px;
+  }
+  .main_brain_style {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .main_products_style {
+    width: 100%;
+    height: 1400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 50px;
+  }
+  .filp_box {
+    width: 100%;
+    height: 450px;
+    flex-direction: column;
+    text-align: center;
+    perspective: 1000px;
+  }
+  .flip_1 {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+  }
+  .flip_2 {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+  }
+  .flip_3 {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+  }
+  .main_Event_style {
+    width: 100%;
+    height: 800px;
+    /* background-color: rgb(161, 130, 130); */
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 50px;
+  }
+  .event01 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    width: 100%;
+    height: 350px;
+    background-color: #f5f6f8;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: -2000;
+  }
+  .event02 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    height: 350px;
+    background-color: #f5f6f8;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: -2000;
+    margin: auto;
+  }
+  .product1_btn {
+    display: none;
+  }
+  .back_table {
+    display: flex;
+    width: 100%;
+    text-align: left;
+    color: black;
+  }
+  .td_style {
+    display: flex;
+    width: 850px;
+    justify-content: space-between;
+    padding: 8px 0px;
+  }
+  .product2_btn {
+    display: none;
+  }
+  .product3_btn {
+    display: none;
   }
 }
