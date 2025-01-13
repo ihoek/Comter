@@ -62,8 +62,10 @@ function left_btn() {
   let num = Number(document.getElementById("main_num").innerText);
   if (num <= 1) {
     document.getElementById("main_num").innerText = 4;
+    document.getElementById("main_right_img01").src = rightimg[3];
   } else {
     document.getElementById("main_num").innerText = num - 1;
+    document.getElementById("main_right_img01").src = rightimg[num - 2];
   }
   changeMainContent(Number(document.getElementById("main_num").innerText));
 }
@@ -73,48 +75,45 @@ function right_btn() {
   let num = Number(document.getElementById("main_num").innerText);
   if (num >= 4) {
     document.getElementById("main_num").innerText = 1;
+    document.getElementById("main_right_img01").src = rightimg[0];
   } else {
     document.getElementById("main_num").innerText = num + 1;
+    document.getElementById("main_right_img01").src = rightimg[num];
   }
   changeMainContent(Number(document.getElementById("main_num").innerText));
 }
 
 //main 숫자에 따른 내용 변경 함수
 const changeMainContent = (number) => {
-  if (number === 1) {
-    document.getElementById("main_num").innerText = 1;
-    document.getElementById("main01_title").innerText = title[0];
-    document.getElementById("main01_sub01").innerText = sub01[0];
-    document.getElementById("main01_sub02").innerText = sub02[0];
-    document.getElementById("main_right_img").src = rightimg[0];
-    document.getElementById("main_container").style.backgroundColor =
-      bdclist[0];
-  } else if (number === 2) {
-    document.getElementById("main_num").innerText = 2;
-    document.getElementById("main01_title").innerText = title[1];
-    document.getElementById("main01_sub01").innerText = sub01[1];
-    document.getElementById("main01_sub02").innerText = sub02[1];
-    document.getElementById("main_right_img").src = rightimg[1];
-    document.getElementById("main_container").style.backgroundColor =
-      bdclist[1];
-  } else if (number === 3) {
-    document.getElementById("main_num").innerText = 3;
-    document.getElementById("main01_title").innerText = title[2];
-    document.getElementById("main01_sub01").innerText = sub01[2];
-    document.getElementById("main01_sub02").innerText = sub02[2];
-    document.getElementById("main_right_img").src = rightimg[2];
-    document.getElementById("main_container").style.backgroundColor =
-      bdclist[2];
-  } else if (number === 4) {
-    document.getElementById("main_num").innerText = 4;
-    document.getElementById("main_right_img").src = rightimg[3];
-    document.getElementById("main01_title").innerText = title[3];
-    document.getElementById("main01_sub01").innerText = sub01[3];
-    document.getElementById("main01_sub02").innerText = sub02[3];
-    document.getElementById("main_container").style.backgroundColor =
-      bdclist[3];
-  }
+  document.getElementById("main_num").innerText = number;
+  document.getElementById("main01_title").innerText = title[number - 1];
+  document.getElementById("main01_sub01").innerText = sub01[number - 1];
+  document.getElementById("main01_sub02").innerText = sub02[number - 1];
+  document.getElementById("main_container").style.backgroundColor =
+    bdclist[number - 1];
 };
+
+//swiper api
+const swiper = new Swiper(".swiper", {
+  direction: "horizontal",
+  loop: true,
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+  autoplay: {
+    delay: 5000, // 5초마다 자동 재생
+  },
+});
+
+// Swiper index 변경 시 main 내용 업데이트
+swiper.on("slideChange", function () {
+  const realIndex = swiper.realIndex; // 실제 슬라이드 인덱스
+  changeMainContent(realIndex + 1); // 배열 인덱스와 동기화
+});
 
 //자세히 보기 누르면 카드 뒤집기
 function cardreverse(element) {
@@ -158,42 +157,6 @@ group.addEventListener("click", () => {
 group.addEventListener("blur", () => {
   const dropdown = document.querySelector(".footer_dropdown_menu");
   dropdown.style.display = "";
-});
-
-//swiper api
-const swiper = new Swiper(".swiper", {
-  // Optional parameters
-  direction: "horizontal",
-  loop: true,
-
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
-  },
-
-  loop: true, // 루프 기능
-  autoplay: {
-    delay: 5000, // 5초마다 자동 재생
-  },
-});
-
-//swiper index 탐색 후 해당으로 이동
-swiper.on("transitionEnd", function () {
-  if (swiper.realIndex === 0) {
-    changeMainContent(1);
-  } else if (swiper.realIndex === 1) {
-    changeMainContent(2);
-  } else if (swiper.realIndex === 2) {
-    changeMainContent(3);
-  } else if (swiper.realIndex === 3) {
-    changeMainContent(4);
-  }
 });
 
 // burger 메뉴
@@ -253,14 +216,22 @@ document.addEventListener("DOMContentLoaded", () => {
       // 클릭 이벤트 추가 - 하위 메뉴 표시
       menuDiv.addEventListener("click", () => {
         content.innerText = item.text;
+        // 특정 메뉴일 때 스크롤 활성화
         if (item.id === "menu_ai") {
           updateMenuBody(menuItem_ai_title, menuItem_ai_content);
+          menuBody.style.overflowY = "hidden";
         } else if (item.id === "menu_product") {
           updateMenuBody(menuItem_product_title, menuItem_product_content);
+          // 세로 스크롤 활성화
+          menuBody.style.overflowY = "scroll";
         } else if (item.id === "menu_service") {
           updateMenuBody(menuItem_service_title, menuItem_service_content);
+          menuBody.style.overflowY = "hidden";
         } else if (item.id === "menu_support") {
           updateMenuBody(menuItem_support_title, menuItem_support_content);
+
+          // 세로 스크롤 활성화
+          menuBody.style.overflowY = "scroll";
         }
         menuState = 2; // 상태를 2단계로 변경
       });
@@ -352,7 +323,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //footer image 삽입
-
 document.addEventListener("DOMContentLoaded", () => {
   //footer 01
   const footer_img = document.getElementById("footer_img01");

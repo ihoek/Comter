@@ -88,13 +88,13 @@ html {
   overflow: hidden;
   width: 100%;
   border-radius: 50px;
+  background-color: #0070c0;
 }
 .main_left {
   display: flex;
   flex-direction: column;
   width: 40%;
   padding: 50px;
-  background-color: #0070c0;
 }
 .main_left_top {
   width: 100%;
@@ -155,7 +155,7 @@ html {
 .btn_style {
   position: relative;
   height: 45px;
-  width: 150px;
+  width: 125px;
   font-size: 13px;
   color: #383736;
   background-color: white;
@@ -197,7 +197,6 @@ html {
   position: sticky;
   left: 95%;
   bottom: 20px;
-  z-index: 10;
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;
@@ -371,7 +370,7 @@ html {
 }
 
 .filp_box {
-  width: 370px;
+  width: 32%;
   height: 370px;
   flex-direction: column;
   text-align: center;
@@ -426,19 +425,22 @@ html {
   justify-content: left;
 }
 .back_table {
-  text-align: left;
-  padding: 0px 30px;
-  display: flex;
+  width: 100%;
   color: white;
+}
+.table_tr {
   width: 100%;
 }
 .td_style {
   display: flex;
-  justify-content: center;
-  width: 280px;
   justify-content: space-between;
-  padding: 8px 0px;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  padding: 8px 10px;
 }
+
 .more_up_img {
   width: 20px;
   height: 20px;
@@ -500,7 +502,7 @@ tr {
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
-  width: 550px;
+  width: 47%;
   height: 350px;
   background-color: #f5f6f8;
   border-radius: 10px;
@@ -519,7 +521,7 @@ tr {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 550px;
+  width: 47%;
   height: 350px;
   background-color: #f5f6f8;
   border-radius: 10px;
@@ -586,6 +588,7 @@ tr {
 }
 .footer_btn {
   color: white;
+  border: 1px solid white;
   position: relative;
 }
 .footer_logo {
@@ -710,6 +713,12 @@ ul {
 .menu_body_style {
   padding-bottom: 20px;
   cursor: pointer;
+  padding: 10px;
+}
+.menu_body_style.scrollable {
+  overflow-y: scroll; /* 세로 스크롤 */
+  max-height: 400px; /* 스크롤 높이 제한 */
+  scrollbar-width: thin; /* 스크롤바 크기 조정 (Firefox) */
 }
 .menu_header_content {
   font-size: 20px;
@@ -828,6 +837,22 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  .td_style {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+  }
+  .footer_dropdown_menu {
+    position: absolute;
+    display: none;
+    background-color: white;
+    border: 1px solid black;
+    z-index: 1;
+    bottom: 300px;
   }
 }
 
@@ -961,16 +986,21 @@ ul {
   .product1_btn {
     display: none;
   }
-  .back_table {
+  .res_product {
     display: flex;
-    width: 100%;
+  }
+  .back_table {
     text-align: left;
+    width: 100%;
     color: black;
   }
   .td_style {
     display: flex;
-    width: 850px;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
     padding: 8px 0px;
   }
   .product2_btn {
