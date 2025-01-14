@@ -51,6 +51,7 @@ html {
   width: 30px;
   height: 30px;
   padding-right: 5px;
+  cursor: pointer;
 }
 .img_orgin_style {
   width: 100%;
@@ -136,8 +137,8 @@ html {
   align-items: end;
 }
 .check_img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 .main_left_bot {
   padding: 80px 0px 0px 0px;
@@ -155,7 +156,7 @@ html {
 .btn_style {
   position: relative;
   height: 45px;
-  width: 125px;
+  width: 115px;
   font-size: 13px;
   color: #383736;
   background-color: white;
@@ -283,6 +284,16 @@ html {
   font-weight: 500;
   font-style: normal;
   padding-bottom: 15px;
+  cursor: pointer;
+}
+.menu_content_font {
+  font-size: 13px;
+  color: gray;
+  font-family: "Gothic A1", serif;
+  font-weight: 500;
+  font-style: normal;
+  padding-bottom: 15px;
+  cursor: pointer;
 }
 .main_brain_style {
   width: 100%;
@@ -361,6 +372,7 @@ html {
 }
 .announce_all_look {
   padding: 50px 50px 0px 0px;
+  cursor: pointer;
 }
 
 /*main03 - Aunnounce*/
@@ -532,13 +544,14 @@ tr {
   width: 200px;
   height: 150px;
   margin: 0px auto;
-  padding: 10px 0px;
+  padding: 20px 0px;
 }
 .evnet02_title {
   font-size: 15px;
-  padding: 10px 0px;
+  padding: 20px 0px;
 }
 .event02_sub {
+  padding-top: 30px;
   font-size: 13px;
 }
 
@@ -569,6 +582,14 @@ tr {
   color: gray;
   font-size: 13px;
   padding-bottom: 20px;
+}
+#footer_col1 {
+  display: block;
+  flex-direction: column;
+}
+#footer_col2 {
+  display: block;
+  flex-direction: column;
 }
 .footer_company_orange_font {
   color: orange;

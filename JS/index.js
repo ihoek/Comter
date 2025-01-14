@@ -30,17 +30,8 @@ let rightimg = [
 let bdclist = ["#0070C0", "#886756", "#0070C0", "#000D6D"];
 
 const main_img = document.getElementById("main_container");
-
 const menuBody = document.getElementById("menu_body");
 const content = document.getElementById("menu_header_content");
-
-// 메뉴 데이터 정의
-const menuItems = [
-  { id: "menu_ai", text: "AI" },
-  { id: "menu_product", text: "제품" },
-  { id: "menu_service", text: "서비스" },
-  { id: "menu_support", text: "지원" },
-];
 const menuItem_product_title = ["오피스", "SDK", "솔루션"];
 const menuItem_service_title = [
   "컴터독스",
@@ -49,6 +40,7 @@ const menuItem_service_title = [
   "컴터디벨로퍼",
 ];
 const menuItem_support_title = ["지원센터", "자주 묻는 질문", "다운로드 센터"];
+
 //top btn 구현
 function toTop() {
   window.scrollTo({
@@ -148,6 +140,7 @@ function cardreverse(element) {
   }
 }
 
+//footer 드롭 다운 버튼
 let group = document.getElementById("footer_btn_content");
 group.addEventListener("click", () => {
   const dropdown = document.querySelector(".footer_dropdown_menu");
@@ -324,46 +317,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //footer image 삽입
 document.addEventListener("DOMContentLoaded", () => {
-  //footer 01
+  // footer
   const footer_img = document.getElementById("footer_img01");
   const footer_img02 = document.getElementById("footer_img02");
 
-  //down arrow 이미지 클릭시 - 드롭다운 메뉴 활성화
-  //column01
+  // down arrow 이미지 클릭시 - 드롭다운 메뉴 활성화
+  // column01
   const footer_title01 = document.getElementById("footer_col1_title");
   const footer_content01 = document.getElementById("footer_col1");
 
   footer_content01.classList.add("footer_content_res");
-  //column02
+  // column02
   const footer_title02 = document.getElementById("footer_col2_title");
   const footer_content02 = document.getElementById("footer_col2");
 
   footer_content02.classList.add("footer_content_res");
 
-  //버튼 클릭 시 하단 메뉴 등장 및 삭제
+  // 반응형 조건 정의
+  const isResponsive = window.matchMedia("(max-width: 1280px)"); // 화면 너비 1280px 이하
+
+  // 버튼 클릭 시 하단 메뉴 등장 및 삭제
   let cnt01 = 0;
   footer_title01.addEventListener("click", () => {
-    if (cnt01 === 0) {
-      footer_img.src = "./Img/uparrow.png";
-      footer_content01.style.display = "flex";
-      cnt01 = 1;
-    } else {
-      footer_img.src = "./Img/downarrow.png";
-      footer_content01.style.display = "none";
-      cnt01 = 0;
+    if (isResponsive.matches) {
+      // 반응형에서만 작동
+      if (cnt01 === 0) {
+        footer_img.src = "./Img/uparrow.png";
+        footer_content01.style.display = "flex";
+        cnt01 = 1;
+      } else {
+        footer_img.src = "./Img/downarrow.png";
+        footer_content01.style.display = "none";
+        cnt01 = 0;
+      }
     }
   });
-  //버튼 클릭 시 하단 메뉴 등장 및 삭제
+
+  // 버튼 클릭 시 하단 메뉴 등장 및 삭제
   let cnt02 = 0;
   footer_title02.addEventListener("click", () => {
-    if (cnt02 === 0) {
-      footer_img02.src = "./Img/uparrow.png";
-      footer_content02.style.display = "flex";
-      cnt02 = 1;
-    } else {
-      footer_img02.src = "./Img/downarrow.png";
-      footer_content02.style.display = "none";
-      cnt02 = 0;
+    if (isResponsive.matches) {
+      // 반응형에서만 작동
+      if (cnt02 === 0) {
+        footer_img02.src = "./Img/uparrow.png";
+        footer_content02.style.display = "flex";
+        cnt02 = 1;
+      } else {
+        footer_img02.src = "./Img/downarrow.png";
+        footer_content02.style.display = "none";
+        cnt02 = 0;
+      }
+    }
+  });
+
+  // 화면 크기 변경 이벤트에 따른 처리 (필요 시 추가 작업)
+  isResponsive.addEventListener("change", (e) => {
+    if (!e.matches) {
+      // 반응형 해제 시 초기화
+      footer_content01.style.display = ""; // 기본 상태로
+      footer_content02.style.display = ""; // 기본 상태로
     }
   });
 });
