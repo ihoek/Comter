@@ -11,6 +11,11 @@
   <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=github&logoColor=white" />
 </div>
 
+<ul>
+  <li>Swiper API</li>
+  <li>AOS</li>
+</ul>
+
 ## ✅상세 기능
 
 ### Header
@@ -20,11 +25,31 @@
 <div>각 메뉴에 Hover를 할 경우 서브 메뉴가 나온다</div>
 <br>
 
+![main01](https://github.com/user-attachments/assets/b9840b5d-23a4-4c0a-a552-9c8dec9e9852)
+
+#### 1-2) 메인1
+<div>Swiper를 활용하여 드래그 시 다음 사진으로 넘어갈 수 있게 하였고, 버튼을 클릭할 경우 다음 사진으로 이동한다.</div>
+<div>5초를 기준으로 다음 사진으로 이동한다</div>
+<br>
+
 ![main02](https://github.com/user-attachments/assets/f925f108-6ce4-4929-90af-ed2d9c9208e5)
 
-#### 1-2) 메인2
+#### 1-3) 메인2
 <div>버튼에 Hover를 할 경우 색이 변하며 스크롤을 내릴 시 순차적으로 올라온다.</div>
+<br>
 
 ![main03](https://github.com/user-attachments/assets/c493eeaf-2d01-49ae-a271-94394a1b92fc)
+
+#### 1-4) 메인3
+<div>버튼을 클릭하면 카드가 뒤집히면서 상세 내용이 나온다.</div>
+<br>
+
 ![main4_5-_-footer](https://github.com/user-attachments/assets/40580040-3ecb-4da7-82a9-dd56c7e606a6)
+
+#### 1-5) Footer
+<br>
+
 ![반응형-버거-메뉴](https://github.com/user-attachments/assets/3185a1d7-d7dd-4869-99f2-b4821d56a797)
+
+#### 1-6) 반응형
+<br>
